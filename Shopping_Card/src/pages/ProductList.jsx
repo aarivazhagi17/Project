@@ -38,7 +38,8 @@ function ProductList() {
 
      <div className='delivery'>
     <div >
-      <img className='delivery_boy' src={`http://localhost:7000/uploads/${product.image}`} alt="" />
+      <img className='delivery_boy' src={Delivery} alt="" />
+      
     </div>
     <div className='delivery_items'>
         <h2>30 Minutes Fast</h2>
