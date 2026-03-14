@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
     <div
       style={{
         width: "230px",
-        background: "#f7f3f3",
         fontSize:"20px",
+        position:"fixed",
+        left: "25px",
+        marginTop: "100px",
         height: "100vh",
         padding: "12px",
       }}

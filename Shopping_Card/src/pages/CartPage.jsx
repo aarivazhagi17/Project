@@ -3,12 +3,31 @@ import React from 'react';
 import { useCart } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import { useNavigate } from "react-router-dom";
+import {useState, useEffect } from 'react';
 
 import './CartPage.css';
 
 function CartPage() {
   const navigate = useNavigate();
-  const { items, total } = useCart();
+  const { items, total, setProduct } = useCart();
+
+
+ const handleFetch = async () => {
+  try{ 
+    const response = await fetch("http://localhost:7000/products");
+    const data = await response.json();
+    setProduct(data);
+  }
+  catch(error){
+    console.log(error);
+  }
+}
+
+useEffect(() => {
+  handleFetch();
+}, []);
+
+
 
   const handleOrder = () => {
 
@@ -37,20 +56,18 @@ function CartPage() {
         {items.length === 0 ? (
           <p>Cart is empty.</p>
         ) : (
-          <>
-            <div>
-              {items.map((it) => (
-                <CartItem key={it.id} item={it} />
-              ))}
-
+          
+          <div>
+              {
+                items.map((it) => (
+                  <CartItem key={it._id} item={it} />
+                ))  
+              }
               <div style={{ display: "flex", justifyContent: "space-between" }}>
               <span style={{float:"left", fontWeight:"bold", fontSize:"20px"}}>Total:</span>
               <span style={{float :"right", marginRight:"30px", fontWeight:"bold", fontSize:"18px"}}>${total}</span>
             </div>
-
             </div>
-            
-          </>
         )}
       </div>
 

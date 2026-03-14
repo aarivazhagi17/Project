@@ -10,9 +10,14 @@ function AdminNavbar() {
   return (
     <div
       style={{
-        background: "black",
+        background: "#0b2b60",
+        top:"0",
+        left:"0",
         color: "white",
-        padding: "15px",
+        padding: "7px",
+        paddingTop: "6px",
+        position:"fixed",
+        width:"99%",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",

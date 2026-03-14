@@ -21,12 +21,12 @@ function CartItem({ item }) {
         Qty:{item.quantity}
       </div> <br /> <br />
       <button onClick={() => addItem(item)}>+</button>
-      <button onClick={() => decrementItem(item.id)}>-</button>
-      <button style={{backgroundColor:"red", padding:"5px", color:"white", border:"none", borderRadius:"5px"}} onClick={() => removeItem(item.id)}>Remove</button> <br /> <br />
+      <button onClick={() => decrementItem(item._id)}>-</button>
+      <button style={{backgroundColor:"red", padding:"5px", color:"white", border:"none", borderRadius:"5px"}} onClick={() => removeItem(item._id)}>Remove</button> <br /> <br />
       <div>
         <span>Subtotal:</span>
          <span style={{padding:"30px"}}>${(item.price)} </span>
-      </div>
+      </div>  
     </div>
   );
 }

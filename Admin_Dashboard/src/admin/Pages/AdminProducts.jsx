@@ -39,11 +39,17 @@ useEffect(() => {
 
       const data = await response.json();
 
+
+      if (response.ok) {
       setProducts([...products, data]);
-      alert("Product added successfully!")
+      alert("Product added successfully!");
       setName("");
       setPrice("");
       setImage(null);
+      handleFetch();
+    } else {
+      alert("Please Add the Product");
+    }
       
     }
     catch(error){

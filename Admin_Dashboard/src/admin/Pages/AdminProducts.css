@@ -8,6 +8,7 @@
 /* Heading */
 .admin-heading {
   text-align: center;
+  margin-top: 100px;
   margin-bottom: 30px;
   font-size: 28px;
 }
@@ -16,6 +17,7 @@
 .product-form {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 70px;
   gap: 15px;
   justify-content: center;
   margin-bottom: 40px;
@@ -31,7 +33,7 @@
 
 .product-form button {
   padding: 12px 25px;
-  background: black;
+  background:green;
   color: white;
   border: none;
   border-radius: 8px;
@@ -40,9 +42,12 @@
 }
 
 .product-form button:hover {
-  background: #444;
+  background: #269b41;
 }
 
+.product-form button:active {
+  background: #5bd979;
+}
 /* Product Grid */
 .product-grid {
   display: grid;
@@ -55,7 +60,8 @@
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
+  gap: 40px;
+  margin-left: 100px;
   margin-top: 30px;
 }
 
@@ -70,7 +76,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%;
+  height: 90%;
 }
 
 .product-card:hover {
@@ -80,7 +86,7 @@
 /* Image */
 .product-card img {
   width: 100%;
-  height: 250px;
+  height: 150px;
   object-fit: contain;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -94,7 +100,7 @@
 /* Price */
 .product-card p {
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 /* Responsive */

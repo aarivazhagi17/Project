@@ -29,7 +29,7 @@ export function CartProvider({ children }) {
   // add item or increase qty if already in cart
   const addItem = (product) => {
     setItems((prev) => {
-      const idx = prev.findIndex((it) => it.id === product.id);
+      const idx = prev.findIndex((it) => it._id === product._id);
       if (idx >= 0) {
         // already present -> increase quantity
         const updated = [...prev];
@@ -47,7 +47,7 @@ export function CartProvider({ children }) {
   // decrease quantity or remove if qty becomes 0
   const decrementItem = (productId) => {
     setItems((prev) => {
-      const idx = prev.findIndex((it) => it.id === productId);
+      const idx = prev.findIndex((it) => it._id === productId);
       if (idx < 0) return prev;
       const updated = [...prev];
       const currentQty = updated[idx].quantity;
@@ -63,7 +63,7 @@ export function CartProvider({ children }) {
 
   // remove completely (optional)
   const removeItem = (productId) => {
-    setItems((prev) => prev.filter((it) => it.id !== productId));
+    setItems((prev) => prev.filter((it) => it._id !== productId));
   };
 
   // compute total price

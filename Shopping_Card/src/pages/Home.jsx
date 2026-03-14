@@ -8,10 +8,16 @@ import Realme from "../assets/Realme.jpg"
 import Sony from "../assets/Sony.jpg"
 import TCL from "../assets/TCL.jpg"
 import "./Home.css"
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+import 'aos/dist/aos.css';
+import Aos from 'aos';
+import { useEffect } from 'react'
 
 //icons
 function Home() {
+
+  useEffect(() => {
+    Aos.init({ duration: 1000})
+  }, [])
   return (
     <div>
       <div className='focus'>
