@@ -11,8 +11,8 @@ function AdminProducts() {
   //AOS Anitaion Use Effect
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration: 1500,
+      once: false,
     });
   }, []);
 

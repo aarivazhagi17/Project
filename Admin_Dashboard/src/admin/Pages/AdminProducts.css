@@ -20,7 +20,7 @@
   margin-left: 70px;
   gap: 15px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .product-form input {
@@ -48,19 +48,13 @@
 .product-form button:active {
   background: #5bd979;
 }
-/* Product Grid */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
 
 /* Card */
 /* Product Grid - Perfect Fit */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 40px;
+  gap: 20px;
   margin-left: 100px;
   margin-top: 30px;
 }

@@ -26,6 +26,8 @@ function AdminNavbar() {
         left:"0",
         color: "white",
         padding: "7px",
+        height:"50px",
+        zIndex:"1000",
         paddingTop: "6px",
         position:"fixed",
         width:"99%",
