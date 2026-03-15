@@ -1,14 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "aos/dist/aos.css";
+import AOS from 'aos';
 function AdminNavbar() {
   const navigate = useNavigate();
+
+  //AOS Animation
+   useEffect(()=>{
+      AOS.init({
+        duration: 1000,
+        once:true
+      });
+    },
+  []);
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/");
   };
 
   return (
-    <div
+    <div data-aos="fade-down"
       style={{
         background: "#0b2b60",
         top:"0",
@@ -23,9 +34,9 @@ function AdminNavbar() {
         alignItems: "center",
       }}
     >
-      <h2>Admin Panel</h2>
+      <h2 data-aos="fade-right">Admin Panel</h2>
 
-      <button
+      <button data-aos="fade-left"
       onClick= {handleLogout}
         style={{
           padding: "8px 15px",

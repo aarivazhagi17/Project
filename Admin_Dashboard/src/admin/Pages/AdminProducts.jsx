@@ -1,31 +1,39 @@
 import React, { useState, useEffect } from "react";
 import "./AdminProducts.css";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function AdminProducts() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
   const [products, setProducts] = useState([]);
 
+  //AOS Anitaion Use Effect
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
 
-const handleFetch = async () => {
-  try{
-    const response = await fetch("http://localhost:7000/products");
-    const data = await response.json();
-    setProducts(data);
+  const handleFetch = async () => {
+    try {
+      const response = await fetch("http://localhost:7000/products");
+      const data = await response.json();
+      setProducts(data);
+    }
+    catch (error) {
+      console.log(error);
+    }
   }
-  catch(error){
-    console.log(error);
-  }
-}
 
-useEffect(() => {
-  handleFetch();
-}, []);
+  useEffect(() => {
+    handleFetch();
+  }, []);
 
   const handleAdd = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const formData = new FormData();
       formData.append("name", name);
       formData.append("price", price);
@@ -34,48 +42,49 @@ useEffect(() => {
       const response = await fetch("http://localhost:7000/products", {
         method: "POST",
         body: formData,
-      
+
       });
 
       const data = await response.json();
 
 
       if (response.ok) {
-      setProducts([...products, data]);
-      alert("Product added successfully!");
-      setName("");
-      setPrice("");
-      setImage(null);
-      handleFetch();
-    } else {
-      alert("Please Add the Product");
+        setProducts([...products, data]);
+        alert("Product added successfully!");
+        setName("");
+        setPrice("");
+        setImage(null);
+        handleFetch();
+      } else {
+        alert("Please Add the Product");
+      }
+
     }
-      
-    }
-    catch(error){
+    catch (error) {
       console.log(error);
     }
-  handleFetch();
+    handleFetch();
   }
 
   const handleDelete = async (id) => {
-    try{
+    try {
       await fetch(`http://localhost:7000/products/${id}`, {
         method: "DELETE",
       });
-      alert ("Product deleted successfully!");
+      alert("Product deleted successfully!");
       handleFetch();
     }
-    catch(error){
+    catch (error) {
       console.log(error);
     }
   }
 
   return (
     <div className="admin-container">
-      <h1 className="admin-heading">💁‍♀️  Products</h1>
+      <h1 className="admin-heading"
+        data-aos="fade-down">💁‍♀️  Products</h1>
 
-      <form className="product-form" onSubmit={handleAdd}>
+      <form className="product-form" onSubmit={handleAdd} data-aos="zoom-in">
         <input
           type="text"
           placeholder="Product Name"
@@ -99,10 +108,10 @@ useEffect(() => {
       </form>
 
       <div className="product-grid">
-       
+
         {products.map((product) => (
-          <div key={product._id} className="product-card">
-           
+          <div key={product._id} className="product-card" data-aos="fade-up">
+
             <img src={`http://localhost:7000/uploads/${product.image}`} alt="" />
             <h3>{product.name}</h3>
             <p>₹ {product.price}</p>
