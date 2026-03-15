@@ -37,10 +37,10 @@ function ProductList() {
     </div>
 
      <div className='delivery'>
-    <div >
+    <a href={Delivery} target="_blank">
       <img className='delivery_boy' src={Delivery} alt="" />
       
-    </div>
+    </a>
     <div className='delivery_items'>
         <h2>30 Minutes Fast</h2>
         <h2>Delivery Challange</h2>
@@ -48,9 +48,9 @@ function ProductList() {
         payments and insurace cocerafe !</h5>
         <img className='Location' src={Location} alt="" />
     </div>
-    <div>
+    <a href={WhiteMan} target="_blank">
       <img className='WhiteMan' src={WhiteMan} alt="" />
-    </div>
+    </a>
     </div>
     <div className='contact'>
       <div>

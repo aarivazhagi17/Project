@@ -12,26 +12,32 @@ import 'aos/dist/aos.css';
 import Aos from 'aos';
 import { useEffect } from 'react'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 //icons
 function Home() {
 
   useEffect(() => {
-    Aos.init({ duration: 1000})
+    Aos.init({
+      once: false,
+    })
   }, [])
+
   return (
     <div>
       <div className='focus'>
-        <div>
+        <div data-aos="fade-right">
           <h1>“Focus on key features and value to make the phone look worth buying.”</h1>
           <button className='button'>View More</button>
         </div>
-        <a href={Mobile} target='_blank'>
+        <a href={Mobile} target='_blank' data-aos="fade-left">
           <img className='image' src={Mobile} alt="" />
         </a>
       </div>
       <div className='Mgroup'>
-        <img className='imge' src={Mobilegroup} alt="" />
-        <div>
+        <img className='imge' src={Mobilegroup} alt="" data-aos="zoom-in-right" />
+        <div data-aos="zoom-in-left">
           <h3> Customize with your product branding</h3>
           <h1> We offer great flexibility mobile widget and easy to customize</h1>
           <p>Our mobiel admin dashboards are easy to customize user interfaces along with your exact requirements</p>
@@ -39,8 +45,8 @@ function Home() {
         </div>
       </div>
       <div className='Verity'>
-        <h2>Details</h2>
-        <div className='cards3'>
+        <h2 data-aos="fade-down">Details</h2>
+        <div className='cards3' data-aos="fade-up">
           <div className='card3'>
             <img className='img3' src={Vivo} alt="" />
             <h3>
@@ -58,7 +64,7 @@ function Home() {
           </div>
         </div>
 
-        <div className='cards2'>
+        <div className='cards2' data-aos="fade-up" data-aos-delay="100">
           <div className='card2'>
             <img className='img2' src={hp} alt="" />
             <h3>
@@ -76,7 +82,7 @@ function Home() {
           </div>
         </div>
 
-        <div className='cards1'>
+        <div className='cards1' data-aos="fade-up" data-aos-delay="200">
           <div className='card1'>
             <img className='img1' src={Shivark} alt="" />
             <h3>
@@ -94,7 +100,7 @@ function Home() {
           </div>
         </div>
 
-        <div className='cards4'>
+        <div className='cards4' data-aos="fade-up" data-aos-delay="300">
           <div className='card4'>
             <img className='img4' src={Realme} alt="" />
             <h3>
@@ -114,7 +120,7 @@ function Home() {
         </div>
 
 
-        <div className='cards5'>
+        <div className='cards5' data-aos="fade-up" data-aos-delay="400">
           <div className='card5'>
             <img className='img5' src={Sony} alt="" />
             <h3>
@@ -138,9 +144,9 @@ function Home() {
           </div>
         </div>
 
-        <div className='cards6'>
+        <div className='cards6' data-aos="fade-up" data-aos-delay="500">
           <div className='card6'>
-            <img className='img6' src={TCL} alt="" />
+            <img className='img6' src={TCL} alt=""/>
             <h3>
               <span>TCL</span> <br /> <br />
               <li>HDR & Dolby Support: Many TCL TVs support HDR10, Dolby Vision for dynamic contrast and colors.</li> <br />
