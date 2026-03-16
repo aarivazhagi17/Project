@@ -142,18 +142,15 @@ app.post("/user-register", async (req, res) => {
 ================================*/
 app.post("/orders", async (req, res) => {
   try {
-    const { name, phone, address } = req.body;
-
-    const newOrder = new Order({
-      name,
-      phone,
-      address,
-      userId: "USER" + Date.now(),
-    });
-
-    await newOrder.save();
-
-    res.json({ message: "Order saved successfully" });
+     const order = new Order({
+       name: req.body.name,
+       phone: req.body.phone,
+       address: req.body.address,
+       date: req.body.date,
+       status:"pending"
+     });
+     const saveOrder =await order.save();
+     res.json(saveOrder);
 
   } catch (error) {
     res.status(500).json({ error: error.message });

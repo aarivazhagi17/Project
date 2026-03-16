@@ -27,8 +27,6 @@ useEffect(() => {
   handleFetch();
 }, []);
 
-
-
   const handleOrder = () => {
 
   if (items.length === 0) {
@@ -44,9 +42,6 @@ useEffect(() => {
     alert("Please Register!");
     navigate("/Contact");
   }
-
-  alert("Please Register!");
-  navigate("/Contact");
 };
 
   return (

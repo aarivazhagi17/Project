@@ -8,48 +8,28 @@ function Order() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     alert("Order Confirmed 🎉");
 
-    const navigate = useNavigate();
+  
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+const totalPrice = cartItems.reduce(
+  (total,item)=> total + item.price,
+  0
+);
 
-  const orderData = {
-    name,
-    phone,
-    address,
-  };
-
-  await axios.post("http://localhost:7000/api/orders", orderData);
-
-  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-
-  const totalPrice = cartItems.reduce(
-    (total, item) => total + item.price,
-    0
-  );
-
-  const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
-
-  const newOrder = {
-    items: cartItems,
-    total: totalPrice,
-    date: new Date().toLocaleString()
-  };
-
-  existingOrders.push(newOrder);
-
-  localStorage.setItem("orders", JSON.stringify(existingOrders));
-
-  localStorage.removeItem("cart"); // optional
-
-  alert("Order Placed Successfully!");
-
-  navigate("/OrdersPage");
-};
+const orderData = {
+  name,
+  phone,
+  address,
+  items: cartItems,
+  total: totalPrice,
+  data: new Date().toLocaleString()
+};  
+await axios.post("http://localhost:7000/orders", orderData);
   };
 
   return (

@@ -1,0 +1,82 @@
+/* page container */
+.orders-container{
+padding:20px;
+}
+
+/* order card */
+.order-card{
+border:1px solid #ddd;
+border-radius:10px;
+padding:15px;
+margin-bottom:20px;
+background:#fff;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* order title */
+.order-title{
+margin-bottom:5px;
+}
+
+/* order date */
+.order-date{
+font-size:14px;
+color:gray;
+}
+
+/* product row */
+.order-item{
+display:flex;
+align-items:center;
+gap:10px;
+margin:6px 0;
+}
+
+/* product image */
+.order-image{
+width:50px;
+border-radius:6px;
+}
+
+/* total price */
+.order-total{
+display:block;
+margin-top:10px;
+}
+
+/* status badge */
+.status{
+display:inline-block;
+margin-top:10px;
+padding:5px 12px;
+border-radius:20px;
+font-size:13px;
+color:white;
+}
+
+/* status colors */
+.status.pending{
+background:orange;
+}
+
+.status.accepted{
+background:#3498db;
+}
+
+.status.delivered{
+background:green;
+}
+
+/* responsive */
+@media(max-width:600px){
+
+.order-item{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.order-image{
+width:45px;
+}
+
+}
