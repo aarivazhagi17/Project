@@ -3,14 +3,13 @@ import React from 'react';
 import { useCart } from '../contexts/CartContext';
 import CartItem from '../components/CartItem';
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 
 import './CartPage.css';
 
 function CartPage() {
   const navigate = useNavigate();
   const { items, total, setProduct } = useCart();
-  // const [orders,serOrders] = useState([]);
 
 
  const handleFetch = async () => {
@@ -28,20 +27,6 @@ useEffect(() => {
   handleFetch();
 }, []);
 
-// const handleFetchOrder = async () => {
-//   try{
-//     const response = await fetch("http://localhost:7000/orders");
-//     const data = await response.json();
-//     serOrders(data);
-//   }
-//   catch(error){
-//     console.log(error);
-//   }
-// }
-// useEffect(()=>{
-//   handleFetchOrder();
-// })
-
   const handleOrder = () => {
 
   if (items.length === 0) {
@@ -52,6 +37,7 @@ useEffect(() => {
 
   const user=localStorage.getItem("user");
   if(user){
+    localStorage.setItem("cart", JSON.stringify(items)); //itha mention panna tha user apro admin ku product send agum
     navigate("/order");
   }
   else{

@@ -13,6 +13,25 @@ function OrdersPage() {
 
   }, []);
 
+
+//    useEffect(() => {
+
+//   const user = JSON.parse(localStorage.getItem("user"));
+
+//   axios.get("http://localhost:7000/orders")
+//     .then(res => {
+
+//       const myOrders = res.data.filter(
+//         order => order.userId === user?._id
+//       );
+
+//       setOrders(myOrders);
+
+//     })
+//     .catch(err => console.log(err));
+
+// }, []);
+
   return (
    <div className="orders-container">
   <h2>My Orders</h2>
